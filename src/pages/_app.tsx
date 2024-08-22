@@ -10,7 +10,7 @@ const Lato700 = Lato({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={Lato700.className}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
     
   )

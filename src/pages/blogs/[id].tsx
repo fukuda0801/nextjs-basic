@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
   // getStaticPaths関数は、生成されたパス（paths）と、fallbackオプションを含むオブジェクトを返します。
   // fallback: trueは、存在しないパスにアクセスした場合に動的にページを生成することを許可します。

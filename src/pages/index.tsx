@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import Img from "../../components/Img";
+import Img2 from "../../components/Img2";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,17 +21,32 @@ export default function Home() {
           <ul>
             <li>
               <Img />
+              <Img2 />
             </li>
             <li>
               <Link href="/my-company/about">会社概要</Link>
+              {/* <p className={Lato700.className}>あいうえお</p> */}
             </li>
             <li>
               <Link href="/my-company/contact">お問い合わせ</Link>
+              <p>かきくけこ</p>
             </li>
             <li>
               <Link href="/my-company/products">商品紹介</Link>
             </li>
           </ul>
+
+          <ol>
+            <li>
+              <Link href="/my-company2/about">会社概要</Link>
+            </li>
+            <li>
+              <Link href="/my-company2/contact">お問い合わせ</Link>
+            </li>
+            <li>
+              <Link href="/my-company2/products">商品紹介</Link>
+            </li>
+          </ol>
         </div>
       </main>
     </>

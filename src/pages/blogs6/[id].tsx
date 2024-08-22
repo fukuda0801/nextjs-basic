@@ -1,25 +1,26 @@
+import { notDeepEqual } from "assert";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { notFound } from "next/navigation";
 
-type BlogProp = {
+type BlogProps = {
   id: number;
   title: string;
   body: string;
 };
 
-type BlogsProp = {
-  blog: BlogProp;
+type BlogIdProps = {
+  blog: BlogProps;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const blogs :BlogProp[] = await res.json();
-  const paths = blogs.map((blog) => {
+  const blogs = await res.json();
+  const paths = blogs.map((blog: BlogProps) => {
     return {
-      params: {
-        id: blog.id.toString()
-      },
+      params: { id: blog.id.toString() },
     };
   });
+
   return {
     paths,
     fallback: false,
@@ -36,21 +37,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`
   );
-  const blog: BlogProp = await res.json();
+  const blog = await res.json();
   return {
     props: { blog },
   };
 };
+import React from "react";
 
-const BlogsId: React.FC<BlogsProp> = ({ blog }) => {
+const BlogId = ({ blog }: BlogIdProps) => {
   return (
     <div>
-      <h1>ブログ記事</h1>
-      <h3>ブログタイトル:{blog.title}</h3>
-      <p>{blog.id}</p>
-      <p>ブログ内容:{blog.body}</p>
+      <p>ブログタイトル: {blog.title}</p>
+      <p>ブログ本文: {blog.body}</p>
     </div>
-  );
+  )
 };
 
-export default BlogsId;
+export default BlogId;
