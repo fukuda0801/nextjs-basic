@@ -22,7 +22,6 @@ export const getStaticProps = async () => {
   // res.json()とはResponseオブジェクトのメソッドの一つです。このメソッドはレスポンスのボディ部分をjson形式のデータとして解析し、
   // その結果をJavascriptのオブジェクトや配列に変換します。
   // つまり、res.json()はJSON形式のテキストデータを、Javascriptが理解できる形に変換する役割を持っています。
-  // 
   return {
     props: {
       data,

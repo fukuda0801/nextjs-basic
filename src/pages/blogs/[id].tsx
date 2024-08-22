@@ -25,7 +25,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = blogs.map((blog) => {
     // 取得したブログポストのデータを元に、それぞれのブログポストに対応するパス（URLのパラメータ）を生成します。
     return {
-      params: { id: blog.id.toString() },
+      params: {
+        id: blog.id.toString()
+      },
     };
     //  const paths = [
       //   { params: { id: "1" } },

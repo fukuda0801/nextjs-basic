@@ -18,7 +18,7 @@ type CartProps = {
 export const getServerSideProps: GetServerSideProps = async () => {
   // getServerSidePropsという非同期関数を定義しています。この関数は、ページがリクエストされるたびにサーバー側で実行されます。
   // ここでデータを取得し、それをページに渡すためのpropsとして返します。
-  const res = await fetch("http://localhost:3001/posts");
+  const res = await fetch("http://localhost:8000/posts");
   // fetchを使って、json-serverが提供するAPIからデータを取得しています。awaitを使って非同期処理が完了するのを待っています。
   // "http://localhost:3001/posts"にアクセスして、カート内の商品のデータを取得しています。
   const cartItems: CartItem[] = await res.json();
@@ -49,7 +49,7 @@ const CartPage: React.FC<CartProps> = ({ cartItems }) => {
 
   return (
     <div>
-      <h1>Shopping Cart</h1>
+      <h1>ショッピングカート</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
