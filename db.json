@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "牛肉",
+      "price": 500,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "name": "卵",
+      "price": 150,
+      "count": 2
+    },
+    {
+      "id": 3,
+      "name": "玉ねぎ",
+      "price": 200,
+      "count": 4
+    },
+    {
+      "id": 4,
+      "name": "ケチャップ",
+      "price": 180,
+      "count": 1
+    }
+  ]
+}
