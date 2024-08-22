@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import useSWR from "swr";
 
 
@@ -16,13 +16,14 @@ export default function FruitsPage() {
     <div>
       <input
         type="text"
+        name="q"
         placeholder="フルーツを検索"
         value={fruitName}
-        onChange={(e) => setFruitName(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setFruitName(e.target.value)}
         autoFocus
       />
       <ul>
-        {data.map((fruit: string, index: number) => (
+        {data?.map((fruit: string, index: number) => (
           <li key={index}>{fruit}</li>
         ))}
       </ul>
